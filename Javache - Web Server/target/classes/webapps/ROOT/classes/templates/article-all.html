@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Home</a>
+            <a class="nav-item nav-link active" href="/logout">Logout</a>
+            <a class="nav-item nav-link active" href="/articles/create">Create Article</a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid mt-3">
+    <h1 class="text-center">All Articles</h1>
+    <hr class="bg-secondary half-width" />
+    <table class="table width-90 mx-auto table-hover">
+        <thead>
+        <tr class="row">
+            <th class="col-md-1" scope="col">#</th>
+            <th class="col-md-2" scope="col">Title</th>
+            <th class="col-md-3" scope="col">Content</th>
+            <th class="col-md-2" scope="col">Published On</th>
+            <th class="col-md-2" scope="col">Author</th>
+        </tr>
+        </thead>
+        <tbody>
+            ${articles}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

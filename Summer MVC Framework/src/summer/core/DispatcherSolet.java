@@ -18,9 +18,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-
-//TODO: DELETE ALL PRINT DEBUGGING MESSAGES, BUT FIRST EXAMINE HOW DOES THE SUMMER FRAMEWORK WORK AND REMOVE THE UNNECESSARY MESSAGES
-//TODO: AND REPLACE THEM WITH MORE APPROPRIATE ONES
 @WebSolet(route = "/*")
 public class DispatcherSolet extends BaseHttpSolet {
 
@@ -42,9 +39,7 @@ public class DispatcherSolet extends BaseHttpSolet {
                 .entrySet()
                 .stream()
                 .filter(action -> {
-                    System.out.println("action url " + action.getKey());
                     Pattern routePattern = Pattern.compile("^".concat(action.getKey()).concat("$"));
-                    System.out.println("reuqest url " + request.getRequestUrl());
                     Matcher routeMatcher = routePattern.matcher(request.getRequestUrl());
 
                     if (routeMatcher.find()) {
@@ -53,8 +48,6 @@ public class DispatcherSolet extends BaseHttpSolet {
                                 .filter(parameter -> parameter.isAnnotationPresent(PathVariable.class))
                                 .collect(Collectors.toList());
 
-                        System.out.println(pathVariables.size() == 0 ? "Nq path variables" : "Ima path");
-
                         for (Parameter pathVariable : pathVariables) {
                             String variableName = pathVariable.getAnnotation(PathVariable.class)
                                     .name();
@@ -62,8 +55,7 @@ public class DispatcherSolet extends BaseHttpSolet {
                             String variableValue = routeMatcher.group(variableName);
                             actionParameters.add(variableValue);
                         }
-
-                        System.out.println("Trq vurni action controller");
+                        
                         return true;
                     } else {
                         return false;

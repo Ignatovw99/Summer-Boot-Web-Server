@@ -110,7 +110,6 @@ public class ApplicationLoadingService {
         httpSoletProxy.init(null);
 
         this.loadedApplications.put(soletRoute, httpSoletProxy);
-        System.out.println("Solet with route " + soletRoute + " was added.");
     }
 
     private void loadClass(File currentFile, URLClassLoader classLoader, String packageName, String applicationName) throws IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
@@ -124,7 +123,6 @@ public class ApplicationLoadingService {
                 );
             }
         } else {
-            System.out.println(currentFile.getName());
             if (!currentFile.getName().endsWith(".class")) return;
 
             String className = packageName.replace("classes.", "").concat(
@@ -135,8 +133,6 @@ public class ApplicationLoadingService {
             );
 
             Class currentClassFile = classLoader.loadClass(className);
-
-            System.out.println("Class loaded: " + currentClassFile.getSimpleName());
 
             this.loadSolet(currentClassFile, applicationName);
 

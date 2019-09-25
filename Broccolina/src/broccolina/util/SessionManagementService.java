@@ -30,8 +30,7 @@ public class SessionManagementService {
             }
         }
     }
-
-    //TODO: REVIEW HOW I DELETE THE INVALID COOKIE
+    
     public void sendSessionIfExistent(HttpRequest request, HttpResponse response) {
         if (request.getSession() != null) {
             if (this.sessionStorage.getById(request.getSession().getId()) == null) {

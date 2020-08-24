@@ -1,0 +1,26 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.word-break-all {
+    word-break: break-all;
+}
+
+.width-25 {
+    width: 25%;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.width-90 {
+    width: 90%;
+}
+
+
+.textarea {
+    resize: none;
+}
